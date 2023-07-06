@@ -3,22 +3,9 @@ import Header from "../../components/Header";
 import { useGetProductsQuery } from "../../state/api";
 import { useTheme } from "@emotion/react";
 import { useState } from "react";
-interface ProductProps{
-  _id: string
-  name: string
-  description: string
-  price: string
-  rating: string
-  category: string
-  supply: string
-  stat: { 
-    yearlySalesTotal: string
-    yearlyTotalSoldUnits: string
-  }[]
-}
-const Product = ({ _id, name, description, price, rating, category, supply, stat, }: ProductProps) => {
+const Product = ({ _id, name, description, price, rating, category, supply, stat, }) => {
   const theme = useTheme();
-  const [isExpanded, setIsExpanded] = useState<boolean>(false)
+  const [isExpanded, setIsExpanded] = useState(false)
   return (
     <Card 
       sx={{
@@ -76,7 +63,7 @@ function Products() {
         <Header title='PRODUCTS' subtitle='See your list of products.' />
         {data || !isLoading ? (
           <Box mt='20px' display='grid' gridTemplateColumns='repeat(4, minmax(0, 1fr))' justifyContent='space-between' rowGap='20px' columnGap='1.33%' sx={{ '& > div': { gridColumn: isNonMobile ? undefined : 'span 4' } }}>
-            {data.map(({ _id, name, description, price, rating, category, supply, stat }: ProductProps) => (
+            {data.map(({ _id, name, description, price, rating, category, supply, stat }) => (
               <Product
               key={_id} 
               _id={_id}

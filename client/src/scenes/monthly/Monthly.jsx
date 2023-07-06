@@ -11,17 +11,12 @@ function Monthly() {
         if (!data) return [];
 
         const { monthlyData } = data;
-        type totalProps = {
-            id: string;
-            color: string;
-            data: { x: any, y: any }[];
-        };
-        const totalSalesLine: totalProps = {
+        const totalSalesLine = {
             id: 'totalSales',
             color: theme.palette.secondary.main,
             data: [],
         };
-        const totalUnitsLine: totalProps = {
+        const totalUnitsLine = {
             id: 'totalUnits',
             color: theme.palette.secondary[600],
             data: [],
@@ -41,9 +36,7 @@ function Monthly() {
         return [formattedData];
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [data])
-
-    // if (data.monthlyData) console.log(formattedData);    
+    }, [data])  
 
     return (
         <Box m='1.5rem 2.5rem'>

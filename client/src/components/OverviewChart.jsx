@@ -11,23 +11,18 @@ function OverviewChart({ isDashboard = false, view }) {
     if (!data) return [];
 
     const { monthlyData } = data;
-    type totalProps = {
-      id: string;
-      color: string;
-      data: [];
-    };
-    const totalSalesLine: totalProps = {
+    const totalSalesLine = {
       id: 'totalSales',
       color: theme.palette.secondary.main,
       data: [],
     };
-    const totalUnitsLine: totalProps = {
+    const totalUnitsLine = {
       id: 'totalUnits',
       color: theme.palette.secondary[600],
       data: [],
     };
 
-    Object.values(monthlyData).reduce((acc: { sales: Number; units: Number }, { month, totalSales, totalUnits }) => {
+    Object.values(monthlyData).reduce((acc, { month, totalSales, totalUnits }) => {
       const curSales = acc.sales + totalSales;
       const curUnits = acc.units + totalUnits;
 

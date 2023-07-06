@@ -10,11 +10,11 @@ function Transactions() {
   const theme = useTheme();
 
   // Query values to be sent to the backend
-  const [page, setPage] = useState<number>(0)
-  const [pageSize, setPageSize] = useState<number>(20)
-  const [sort, setSort] = useState<object>()
-  const [search, setSearch] = useState<string>('')
-  const [searchInput, setSearchInput] = useState<string>('')
+  const [page, setPage] = useState(0)
+  const [pageSize, setPageSize] = useState(20)
+  const [sort, setSort] = useState()
+  const [search, setSearch] = useState('')
+  const [searchInput, setSearchInput] = useState('')
 
   const { data, isLoading } = useGetTransactionsQuery({
     page,

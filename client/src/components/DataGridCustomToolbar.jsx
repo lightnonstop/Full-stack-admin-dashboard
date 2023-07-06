@@ -2,12 +2,8 @@ import { GridToolbarColumnsButton, GridToolbarContainer, GridToolbarDensitySelec
 import FlexBetween from "./FlexBetween";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { Search } from "@mui/icons-material";
-interface DataGridCustomToolbarProps {
-    searchInput: string
-    setSearchInput: React.Dispatch<React.SetStateAction<string>>
-    setSearch: React.Dispatch<React.SetStateAction<string>>
-}
-function DataGridCustomToolbar({ searchInput, setSearchInput, setSearch }: DataGridCustomToolbarProps) {
+
+function DataGridCustomToolbar({ searchInput, setSearchInput, setSearch }) {
     return (
         <GridToolbarContainer>
             <FlexBetween width='100%'>

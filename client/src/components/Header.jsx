@@ -1,11 +1,7 @@
 import { useTheme } from '@emotion/react'
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-interface HeaderProps{
-    title: string
-    subtitle: string
-}
-function Header({ title, subtitle }: HeaderProps) {
+function Header({ title, subtitle }) {
     const theme = useTheme()
   return (
     <Box>

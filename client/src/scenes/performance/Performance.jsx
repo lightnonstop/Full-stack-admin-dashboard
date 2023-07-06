@@ -3,10 +3,10 @@ import Header from "../../components/Header";
 import { useGetPerformanceQuery } from "../../state/api"
 import CustomColumnMenu from '../../components/DataGridCustomColumnMenu'
 import { DataGrid } from "@mui/x-data-grid";
-import { useAppSelector } from "../../app/hook";
+import { useSelector } from "react-redux";
 function Performance() {
     const theme = useTheme();
-    const userId = useAppSelector(state => state.global.userId)
+    const userId = useSelector(state => state.global.userId)
     const { data, isLoading } = useGetPerformanceQuery(userId);
     console.log("Performance ~ data:", data)
 

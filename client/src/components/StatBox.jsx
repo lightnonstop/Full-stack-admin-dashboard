@@ -1,14 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material"
 import FlexBetween from "./FlexBetween"
-interface StatBoxProps {
-    title: string
-    value: string
-    increase: string
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    icon: React.ReactNode
-    description: string
-}
-function StatBox({ title, value, increase, icon, description }: StatBoxProps) {
+function StatBox({ title, value, increase, icon, description }) {
     const theme = useTheme();
     return (
         <Box

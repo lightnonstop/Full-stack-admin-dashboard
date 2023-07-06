@@ -1,22 +1,15 @@
 import { AppBar, Box, Button, IconButton, InputBase, Menu, MenuItem, Toolbar, Typography, useTheme } from "@mui/material"
-import { useAppDispatch } from "../app/hook"
 import { ArrowDropDownOutlined, DarkModeOutlined, LightModeOutlined, Menu as MenuIcon, Search, SettingsOutlined } from '@mui/icons-material'
 import FlexBetween from "./FlexBetween"
 import { setMode } from "../state/state"
 import { Dispatch, SetStateAction, useState } from "react"
 import profile from '../assets/Shelly.jpg'
-interface NavbarProps {
-    isSidebarOpen: boolean
-    setIsSidebarOpen: Dispatch<SetStateAction<boolean>>
-    user: {
-        name: string
-        occupation: string
-    } | Record<string, never>
-}
-function Navbar({ isSidebarOpen, setIsSidebarOpen, user }: NavbarProps) {
-    const dispatch = useAppDispatch()
+import { useDispatch } from "react-redux"
+
+function Navbar({ isSidebarOpen, setIsSidebarOpen, user }) {
+    const dispatch = useDispatch()
     const theme = useTheme()
-    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
+    const [anchorEl, setAnchorEl] = useState(null)
     const isOpen = Boolean(anchorEl);
     const handleClick = (e) => setAnchorEl(e.currentTarget);
     const handleClose = () => setAnchorEl(null);

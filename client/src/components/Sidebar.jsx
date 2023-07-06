@@ -4,18 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import FlexBetween from "./FlexBetween"
 import { AdminPanelSettingsOutlined, CalendarMonthOutlined, ChevronLeft, ChevronRightOutlined, Groups2Outlined, HomeOutlined, PieChartOutline, PointOfSaleOutlined, PublicOutlined, ReceiptLongOutlined, SettingsOutlined, ShoppingCartOutlined, TodayOutlined, TrendingUpOutlined } from "@mui/icons-material"
 import profile from '../assets/Shelly.jpg'
-
-interface SidebarProps {
-    isNonMobile: boolean
-    drawerWidth: string
-    isSidebarOpen: boolean
-    setIsSidebarOpen: Dispatch<SetStateAction<boolean>>
-    user: { 
-        name: string
-        occupation: string
-     } | Record<string, never>
-}
-const navItems: { text: string; icon: React.ReactElement | null }[] = [
+const navItems = [
         {
             text: 'Dashboard',
             icon: <HomeOutlined />
@@ -73,7 +62,7 @@ const navItems: { text: string; icon: React.ReactElement | null }[] = [
             icon: <TrendingUpOutlined />
         },
     ]
-function Sidebar({ isNonMobile, drawerWidth, isSidebarOpen, setIsSidebarOpen, user }: SidebarProps) {
+function Sidebar({ isNonMobile, drawerWidth, isSidebarOpen, setIsSidebarOpen, user }) {
     const { pathname } = useLocation()
     const [active, setActive] = useState('')
     const navigate = useNavigate()

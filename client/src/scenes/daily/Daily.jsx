@@ -6,8 +6,8 @@ import { Box, useTheme } from '@mui/material';
 import Header from '../../components/Header';
 import { ResponsiveLine } from '@nivo/line';
 function Daily() {
-    const [startDate, setStartDate] = useState<Date>(new Date('2021-02-01'));
-    const [endDate, setEndDate] = useState<Date>(new Date('2021-03-01'));
+    const [startDate, setStartDate] = useState(new Date('2021-02-01'));
+    const [endDate, setEndDate] = useState(new Date('2021-03-01'));
     const theme = useTheme()
     const { data } = useGetSalesQuery();
 
@@ -15,17 +15,13 @@ function Daily() {
         if (!data) return [];
 
         const { dailyData } = data;
-        type totalProps = {
-            id: string;
-            color: string;
-            data: { x: any, y: any }[];
-        };
-        const totalSalesLine: totalProps = {
+
+        const totalSalesLine = {
             id: 'totalSales',
             color: theme.palette.secondary.main,
             data: [],
         };
-        const totalUnitsLine: totalProps = {
+        const totalUnitsLine = {
             id: 'totalUnits',
             color: theme.palette.secondary[600],
             data: [],
@@ -52,8 +48,6 @@ function Daily() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data, startDate, endDate])
 
-    // if (data.dailyData) console.log(formattedData);    
-
     return (
         <Box m='1.5rem 2.5rem'>
             <Header title='DAILY SALES' subtitle="Chart of daily sales." />
@@ -61,14 +55,14 @@ function Daily() {
                 <Box display='flex' justifyContent='flex-end'>
                     <DatePicker
                         selected={startDate}
-                        onChange={(date: SetStateAction<Date>) => setStartDate(date)}
+                        onChange={(date) => setStartDate(date)}
                         selectsStart
                         startDate={startDate}
                         endDate={endDate}
                     />
                     <DatePicker
                         selected={endDate}
-                        onChange={(date: SetStateAction<Date>) => setEndDate(date)}
+                        onChange={(date) => setEndDate(date)}
                         selectsEnd
                         startDate={startDate}
                         endDate={endDate}
